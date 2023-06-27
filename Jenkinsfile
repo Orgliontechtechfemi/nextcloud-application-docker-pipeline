@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/Orgliontechtechfemi/nextcloud-application-docker-pipeline.git']]])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Orgliontechtechfemi/nextcloud-application-docker-pipeline.git']])
             }
         }
         
