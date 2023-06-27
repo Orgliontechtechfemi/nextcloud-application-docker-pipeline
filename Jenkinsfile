@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     dockerImage = docker.build registry
-                    dockerImage.tag(env.BUILD_NUMBER)
+                    dockerImage.tag(BUILD_NUMBER)
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 666808198418.dkr.ecr.us-east-1.amazonaws.com'
-                    sh "docker push ${registry}:${env.BUILD_NUMBER}"
+                    sh "docker push ${registry}:${BUILD_NUMBER}"
                 }
             }
         }    
