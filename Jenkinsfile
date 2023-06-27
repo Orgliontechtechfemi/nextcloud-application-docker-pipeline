@@ -5,6 +5,10 @@ pipeline {
         registry = "666808198418.dkr.ecr.us-east-1.amazonaws.com/nextcloupapp"
     }
 
+    tools {
+                maven 'maven3.9.2'
+            }
+
     stages {
         stage('Checkout') {
             steps {
@@ -13,9 +17,7 @@ pipeline {
         }
         
         stage("Build Image") {
-            tools {
-                maven 'maven3.9.2'
-            }
+            
             steps {
                 script {
                     dockerImage = docker.build registry
