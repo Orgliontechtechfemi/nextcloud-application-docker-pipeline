@@ -7,12 +7,12 @@ pipeline {
     agent any
 
     environment {
-        registry = "757750585556.dkr.ecr.us-east-1.amazonaws.com/liontechclass20"
+        registry = "666808198418.dkr.ecr.us-east-1.amazonaws.com/nextcloupapp"
     }
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Lion-Technology-Solutions/nextcloud-application-docker-pipeline.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Orgliontechtechfemi/nextcloud-application-docker-pipeline.git']])
             }
         }
         
@@ -28,8 +28,8 @@ pipeline {
         stage ("Push to ECR") {
             steps {
                 script {
-                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 757750585556.dkr.ecr.us-east-1.amazonaws.com'
-                    sh '757750585556.dkr.ecr.us-east-1.amazonaws.com/liontechclass20:$BUILD_NUMBER'
+                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 666808198418.dkr.ecr.us-east-1.amazonaws.com'
+                    sh '666808198418.dkr.ecr.us-east-1.amazonaws.com/nextcloupapp:$BUILD_NUMBER'
                     
                 }
             }
