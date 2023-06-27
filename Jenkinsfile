@@ -31,7 +31,6 @@ pipeline {
                     sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 666808198418.dkr.ecr.us-east-1.amazonaws.com'
                     sh '666808198418.dkr.ecr.us-east-1.amazonaws.com/nextcloupapp:$BUILD_NUMBER'
 
-                    }
                 }
             }
         }    
